@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const db = require('./db');
+require('dotenv').config();
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
@@ -16,8 +17,8 @@ app.use('/menu',menuRouter);
 const personRouter = require('./routes/personRoutes');
 app.use('/person', personRouter);
 
-
-app.listen(3000, () => {
+const port = process.env.port 
+app.listen(port, () => {
      console.log("SERVER IS UP");
 })
 
