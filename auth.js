@@ -10,7 +10,7 @@ passport.use(new localStrategy(async (USERNAME, PASSWORD, done) => {
               return done(null, false, { message: "User not found" });
          }
 
-         const isPassword = user.password === PASSWORD ? true : false;  //take password from user
+         const isPassword = user.comparepassword(PASSWORD) //take password from user
 
          if (isPassword) {
               return done(null, user);

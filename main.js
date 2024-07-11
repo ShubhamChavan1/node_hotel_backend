@@ -21,10 +21,10 @@ app.get('/', localAuthMiddleware, function (req, res) {
 })
 
 const menuRouter = require('./routes/menuRoutes');
-app.use('/menu', localAuthMiddleware, menuRouter);
+app.use('/menu',  menuRouter);
 
 const personRouter = require('./routes/personRoutes');
-app.use('/person', localAuthMiddleware,personRouter);
+app.use('/person', personRouter);
 
 const port = process.env.PORT
 app.listen(port, () => {
